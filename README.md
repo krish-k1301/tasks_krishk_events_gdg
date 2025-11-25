@@ -1,4 +1,4 @@
-# Tasks – Krish Kubadia – ML – GDG
+# Tasks_Krish Kubadia_Events_GDG
 
 This repository contains my submissions for the Google Developer Group (GDG) Machine Learning Track.
 All tasks are organized using the required branch-based structure. The main branch contains the setup, purpose of the repository, and navigation guide.
@@ -49,13 +49,13 @@ Inside each task branch, you will find:
 Repository name follows the required format:
 
 ```
-tasks_<yourname>_ML_gdg
+tasks_<yourname>_<department>_gdg
 ```
 
 Example:
 
 ```
-tasks_krishk_ML_gdg
+tasks_krishk_Events_gdg
 ```
 
 Task branches follow:
