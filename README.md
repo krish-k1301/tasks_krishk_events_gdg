@@ -1,99 +1,56 @@
-# Tasks – Krish Kubadia – ML – GDG
+# Task 1 – Exploratory Data Analysis (EDA) – Abalone Dataset
 
-This repository contains my submissions for the Google Developer Group (GDG) Machine Learning Track.
-All tasks are organized using the required branch-based structure. The main branch contains the setup, purpose of the repository, and navigation guide.
+## Overview
 
-## Repository Structure
+This task focuses on performing Exploratory Data Analysis (EDA) on the Abalone dataset. The objective was to explore the data structure, clean inconsistencies, generate insights, engineer features, and prepare the dataset for future machine learning tasks.
 
-The repository follows the format specified by the GDG ML mentors:
+## What I Understood
 
-```
- MAIN BRANCH (setup, overview)
- ├── README.md  ← (this file)
- └── Branches for each task:
-        task1/
-        task2/
-        task3/
-        ...
-```
+The dataset was relatively clean and easy to work with. There were no missing values, which made the cleaning process simpler. A few instances where **Height = 0** were identified as invalid entries and removed.
 
-Each task branch contains its own:
+Using the **YData Profiling** library was helpful in automating much of the exploratory analysis. It generated detailed profiling reports that saved significant time and provided a strong starting point for deeper manual EDA.
 
-* Jupyter Notebook(s)
-* Supporting code files (if any)
-* A task-specific README
-* Outputs and analysis
+## Steps Performed
 
-The main branch does **not** contain task code. It is only for navigation and documentation.
+1. Loaded the dataset and inspected columns, data types, and basic statistics.
+2. Removed rows with height equal to zero.
+3. Created a new feature:
 
-## How to Navigate
+   ```
+   Lost weight = Weight − (Shucked Weight + Viscera Weight + Shell Weight)
+   ```
+4. Visualized distributions using KDE, box plots, scatter plots, and violin plots.
+5. One-hot encoded the “Sex” column.
+6. Standardized numeric features (excluding the one-hot encoded columns).
+7. Generated a correlation heatmap to understand feature relationships.
 
-To access any task:
+## Key Insights
 
-1. Open the **Branches** dropdown (top left on GitHub)
-2. Select the branch named after the task, for example:
+### Distribution Insights
 
-   * `task1`
-   * `task2`
-   * `task3`
+* **Age** has a right-skewed distribution, with most abalones around 9–11 years old.
+* **Length, Diameter, and Weight** also show right-skewed distributions reflecting natural biological variation.
+* The engineered feature **Lost weight** shows subtle differences across sexes.
 
-Inside each task branch, you will find:
+### Group-Based Differences
 
-* The complete implementation for that task
-* EDA, preprocessing, and model-building steps
-* Task explanation and conclusions
-* Any generated files or saved notebooks
+* From violin and box plots, **Infant (I)** abalones are generally younger and smaller across all metrics.
+* **Male (M)** and **Female (F)** abalones share similar distributions in Age, Length, and Weight with minor variations in spread.
+* **Lost weight** differs slightly across sex categories but without extreme separation.
 
-## Naming Convention
+### Relationship Insights
 
-Repository name follows the required format:
+* Scatterplots (e.g., **Age vs Diameter**) show positive relationships, suggesting older abalones tend to be larger.
+* Heatmap reveals strong correlations among structural measurements:
 
-```
-tasks_<yourname>_ML_gdg
-```
+  * Length, Diameter, Weight, Shell Weight, and Shucked Weight scale closely together.
+* Age has weaker correlations with most features, implying multiple biological factors contribute to age prediction.
 
-Example:
+## Files Included in This Branch
 
-```
-tasks_krishk_ML_gdg
-```
+* `KrishK_GDG_Task1.ipynb` – Full code and visualizations
+* `README.md` – Task summary and documentation
 
-Task branches follow:
+## Conclusion
 
-```
-task1
-task2
-task3
-...
-```
-
-## Submission Instructions
-
-For each task submission:
-
-* Upload code and notebook to the correct task branch
-* Update the task-specific README with explanations
-* Submit:
-
-  * The **repository link**
-  * The **task branch link**
-    (via the Google Form shared by GDG Mentors)
-
-## Purpose
-
-This repository serves as a structured collection of my work throughout the GDG Machine Learning learning path. Each task demonstrates:
-
-* Exploratory Data Analysis (EDA)
-* Data preprocessing
-* Feature engineering
-* Model building
-* Insight extraction
-* Good coding and documentation practices
-
-## Contact
-
-If you are reviewing this repository and need clarification about any task, feel free to check the task-specific README files for detailed explanations.
-
----
-
-If you want, I can now generate the **Task 1 README** too — just say “Make my Task 1 README”.
+Task 1 provided a solid understanding of the dataset and prepared it for machine learning workflows. Through profiling, visualization, feature engineering, and scaling, the dataset is now clean, well-understood, and ready for modeling in future tasks.
