@@ -35,7 +35,6 @@ To access any task:
 
    * `task1`
    * `task2`
-   * `task3`
 
 Inside each task branch, you will find:
 
